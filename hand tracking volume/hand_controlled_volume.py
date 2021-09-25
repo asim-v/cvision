@@ -68,7 +68,7 @@ while True:
         cv2.rectangle(img,(50,150),(85,400),(0,240,80),3) #Img / Initial position / ending position / color / Thicness
         #fills the bar
         cv2.rectangle(img,(50,int(bar_volume)),(85,400),(0,240,80),cv2.FILLED)
-        bar_volume = np.interp(lenght,[50,190],[400,0]) #definition goes below so that program can start at bar_volume=0
+        bar_volume = np.interp(lenght,[50,300],[400,0]) #definition goes below so that program can start at bar_volume=0
 
         if lenght<50:                        
             cv2.circle(img,(cx,cy),5,(0,55,240),cv2.FILLED)            
