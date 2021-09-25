@@ -176,7 +176,8 @@ if (!!window.EventSource) {
   source.onmessage = function(e) {
     $("#data").text(e.data);
   // console.log(e.data[0],e.data[1]);
-  mousePos.x = (e.data[0]/10)*window.WIDTH
+  var x_pos = (e.data[0]/10)*window.WIDTH
+  var y_pos = (e.data[1]/10)*window.HEIGHT
   mousePos.y = (e.data[1]/10)*window.HEIGHT
   canvas.dispatchEvent(new Event('mousemove'));
 
