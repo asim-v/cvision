@@ -4,8 +4,10 @@ import numpy as np
 import time
 from poseModule import PoseDetector
 
+###Webcam
+cap = cv2.VideoCapture(0)
 ###Flower
-cap = cv2.VideoCapture('Videos/flower.mp4')
+# cap = cv2.VideoCapture('videos/flower.mp4')
 pTime = 0
 ###Time
 
@@ -17,9 +19,11 @@ while True:
     img = detector.findPose(img) #takes as input image, makes image with marks as output
     LmList = detector.findPosition(img) #image as input, list of data as output
 
-
-    #measure fps
-    print(LmList[14],end='\n')
+    try:
+        print(LmList[14],end='\n')
+    except:
+        ("Empty LmList")
+    #measure fps    
     cTime = time.time()
     fps = 1/(cTime-pTime)
     pTime = cTime 
