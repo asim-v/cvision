@@ -122,7 +122,7 @@ while True:
     img = cv2.bitwise_and(img,imgInv)
     img = cv2.bitwise_or(img,imgCanvas)
 
-
+    ##Explication Due
 
 
 
