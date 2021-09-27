@@ -17,6 +17,8 @@ print(len(overlay_list))#Check if read correctly
 header = overlay_list[0]
 #########Open Files
 
+drawColor = (255,255,255)
+
 cap = cv2.VideoCapture(0)
 cap.set(3,1280) #Set feature id 3 (width) to value 1280
 cap.set(4,720) #Set height exactly to 720
@@ -47,13 +49,29 @@ while True:
         # (4rd step) If selection node -> Two fingers are up 
         if fingers[1] and fingers[2]:
             #cv2.rectangle(img,(x1,y1-15),(x2,y2+15),(105, 66, 245),cv2.FILLED) #Draw square
-            cv2.line(img,(x1,y1),(x2,y2),(105, 66, 245),3)
+            cv2.line(img,(x1,y1),(x2,y2),drawColor,3)
             print("Selection mode")            
-        
+            
+            #SELECT SOMETHIGN
+            #We need to check if we're at the top of the image so we can change the 
+            if y1 < 125: #If we're in the header
+                header = overlay_list[0]
+                if 250 < x1 < 450 : #It means it is clicking the first button
+                    header = overlay_list[1] #The header is the first image
+                    drawColor = (10,163,252)
+                elif 550 < x1 < 750 : #It means it is clicking the first button
+                    header = overlay_list[2] #The header is the second image
+                    drawColor = (126, 217, 87)
+                elif 800 < x1 < 950 : #It means it is clicking the first button
+                    header = overlay_list[3] #The header is the third image
+                    drawColor = (10, 10, 252)
+                elif 1050 < x1 < 1200 : #It means it is clicking the first button
+                    header = overlay_list[4] #The header is the fourth image
+                    drawColor = (0,0,0)
 
         # (5th step) Drawing mode, index finger is up
         if fingers[1] and fingers[2] == False:
-            cv2.circle(img,(x1,y1),10,(255, 255, 255),cv2.FILLED) #Draw dot
+            cv2.circle(img,(x1,y1),10,drawColor,cv2.FILLED,5) #Draw dot BGR
             print("Drawing Mode")
         
 
