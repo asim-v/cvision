@@ -107,6 +107,7 @@ while True:
                 cv2.line(imgCanvas,(xp,yp),(x1,y1),drawColor,brush_thickness)
             xp,yp = x1,y1
 
+    #I NEED TO UNDERSTAND THIS IS AN EPIC SOLUTION
     #Converting the imgcanvas into a grey image
     imgGray = cv2.cvtColor(imgCanvas,cv2.COLOR_BGR2GRAY) 
     #Convert into a binary image and also inverting it
