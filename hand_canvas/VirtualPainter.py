@@ -7,7 +7,7 @@ import handTrackingModule as htm
 
 #######
 brush_thickness = 15
-eraser_thickness = brush_thickness*4
+eraser_thickness = brush_thickness*5
 #######
 
 
@@ -32,7 +32,7 @@ cap.set(3,1280) #Set feature id 3 (width) to value 1280
 cap.set(4,720) #Set height exactly to 720
 
 #For landmarks
-detector = htm.handDetector(min_detection_confidence = 0.60)
+detector = htm.handDetector(min_detection_confidence = 0.90)
 
 #For drawing
 xp,yp = 0,0
